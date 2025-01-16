@@ -13,8 +13,8 @@ module.exports = {
         active: 'var(--bg-active)',
       },
       fontFamily: {
-        jersey: ['Jersey 15', 'sans-serif'], // Jersey 15 fontu tanımlandı
-        inter: ['Inter', 'sans-serif'], // Varsayılan olarak Inter de ekli
+        jersey: ['Jersey 15', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },
