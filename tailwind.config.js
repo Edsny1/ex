@@ -11,7 +11,11 @@ module.exports = {
         main: 'var(--text-main)',
         secondary: 'var(--text-secondary)',
         active: 'var(--bg-active)',
-      }
+      },
+      fontFamily: {
+        jersey: ['Jersey 15', 'sans-serif'], // Jersey 15 fontu tanımlandı
+        inter: ['Inter', 'sans-serif'], // Varsayılan olarak Inter de ekli
+      },
     },
   },
   plugins: [require('daisyui')],
@@ -20,15 +24,15 @@ module.exports = {
       {
         light: {
           ...require('daisyui/src/theming/themes')['[data-theme=light]'],
-          primary: '252422',
+          primary: '#3498db',
         },
       },
       {
         dark: {
           ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
-          primary: '252422',
-          'base-100': 'EB5E28',
-          'base-200': '403D39'
+          primary: '#3498db',
+          'base-100': '#f4f6f9',
+          'base-200': '#2c3e50',
         },
       },
     ],
