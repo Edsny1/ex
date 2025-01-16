@@ -4,7 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body {
+/* Jersey 15 Font Tanımı */
+@font-face {
+  font-family: 'Jersey 15';
+  src: url('/fonts/Jersey15.ttf') format('truetype'); /* Font dosyasının yolu */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global Ayarlar */
+html,
+body {
   height: 100%;
 }
 
@@ -33,6 +43,13 @@ html[data-theme='dark'] {
   --bg-active: #242b40;
 }
 
+/* Jersey 15 Fontu Kullanımı */
+.h1-jersey {
+  font-family: 'Jersey 15', sans-serif;
+  font-weight: normal;
+}
+
+/* Tailwind CSS Yapılandırması */
 .table th:first-child {
   position: relative;
   z-index: 2;
