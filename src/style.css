@@ -35,7 +35,3 @@ body {
   --text-secondary: #4b525d;
   --bg-active: #fbfbfc;
 }
-
-html.dark,
-html[data-theme='dark'] {
-  --
