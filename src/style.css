@@ -7,7 +7,7 @@
 /* Jersey 15 Font Tanımı */
 @font-face {
   font-family: 'Jersey 15';
-  src: url('/fonts/Jersey15.ttf') format('truetype'); /* Font dosyasının yolu */
+  src: url('/Jersey15-Regular.ttf') format('truetype'); /* public/Jersey15-Regular.ttf */
   font-weight: normal;
   font-style: normal;
 }
@@ -38,34 +38,4 @@ body {
 
 html.dark,
 html[data-theme='dark'] {
-  --text-main: #f7f7f7;
-  --text-secondary: #6f6e84;
-  --bg-active: #242b40;
-}
-
-/* Jersey 15 Fontu Kullanımı */
-.h1-jersey {
-  font-family: 'Jersey 15', sans-serif;
-  font-weight: normal;
-}
-
-/* Tailwind CSS Yapılandırması */
-.table th:first-child {
-  position: relative;
-  z-index: 2;
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.25s ease-out;
-}
-
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(calc(80%));
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-calc(15%));
-}
+  --
