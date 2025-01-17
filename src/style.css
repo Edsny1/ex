@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -34,4 +34,31 @@ body {
   --text-main: #333;
   --text-secondary: #4b525d;
   --bg-active: #fbfbfc;
+}
+
+html.dark,
+html[data-theme='dark'] {
+  --text-main: #f7f7f7;
+  --text-secondary: #6f6e84;
+  --bg-active: #242b40;
+}
+
+.table th:first-child {
+  position: relative;
+  z-index: 2;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(calc(80%));
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-calc(15%));
 }
