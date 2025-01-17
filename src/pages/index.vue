@@ -49,7 +49,7 @@ const chainStore = useBlockchain();
     <div
       class="flex md:!flex-row flex-col items-center justify-center mb-6 mt-14 gap-2"
     >
-      <h1 class="text-sky-500 dark:invert text-3xl md:!text-6xl font-bold">
+      <h1 class="text-sky-500 dark:invert text-3xl md:!text-6xl font-bold font-serif">
         {{ $t('pages.title') }}
       </h1>
     </div>
