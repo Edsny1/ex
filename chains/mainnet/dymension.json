@@ -1,0 +1,19 @@
+{
+    "chain_name": "dymension",
+    "coingecko": "",
+    "api": ["https://dymension.api.kjnodes.com:443"],
+    "rpc": ["https://dymension.rpc.kjnodes.com"],
+    "snapshot_provider": "",
+    "sdk_version": "0.46.14",
+    "coin_type": "118",
+    "min_tx_fee": "1000",
+    "addr_prefix": "dymension",
+    "logo": "/logos/dymension.png",
+    "assets": [{
+        "base": "udym",
+        "symbol": "DMN",
+        "exponent": "6",
+        "coingecko_id": "",
+        "logo": "/logos/dymension.png"
+    }]
+}
