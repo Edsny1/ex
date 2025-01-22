@@ -11,11 +11,7 @@ module.exports = {
         main: 'var(--text-main)',
         secondary: 'var(--text-secondary)',
         active: 'var(--bg-active)',
-      },
-      fontFamily: {
-        jersey: ['Jersey 15', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-      },
+      }
     },
   },
   plugins: [require('daisyui')],
@@ -24,15 +20,15 @@ module.exports = {
       {
         light: {
           ...require('daisyui/src/theming/themes')['[data-theme=light]'],
-          primary: '#3498db',
+          primary: '#666cff', // Pastel siyah yerine başka bir renk seçebilirsiniz.
         },
       },
       {
         dark: {
           ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
-          primary: '#3498db',
-          'base-100': '#f4f6f9',
-          'base-200': '#2c3e50',
+          primary: '#666cff', // Pastel siyah yerine başka bir renk seçebilirsiniz.
+          'base-100': '#3a3a3a', // Pastel siyah
+          'base-200': '#b0b0b0', // Pastel gri
         },
       },
     ],
