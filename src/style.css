@@ -40,7 +40,7 @@ html.dark,
 html[data-theme='dark'] {
   --text-main: #f7f7f7;
   --text-secondary: #6f6e84;
-  --bg-active: #242b40;
+  --bg-active: #1f1f1f;
 }
 
 .table th:first-child {
