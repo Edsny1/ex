@@ -20,15 +20,15 @@ module.exports = {
       {
         light: {
           ...require('daisyui/src/theming/themes')['[data-theme=light]'],
-          primary: '#666cff', // Pastel siyah yerine başka bir renk seçebilirsiniz.
+          primary: '#666cff', // İstediğiniz başka bir renk burada kullanılabilir.
         },
       },
       {
         dark: {
           ...require('daisyui/src/theming/themes')['[data-theme=dark]'],
-          primary: '#666cff', // Pastel siyah yerine başka bir renk seçebilirsiniz.
-          'base-100': '#3a3a3a', // Pastel siyah
-          'base-200': '#b0b0b0', // Pastel gri
+          primary: '#2f2f2f', // Pastel siyah
+          'base-100': '#d3d3d3', // Pastel gri
+          'base-200': '#4f4f4f', // Pastel antrasit
         },
       },
     ],
