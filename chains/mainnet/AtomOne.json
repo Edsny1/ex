@@ -1,5 +1,5 @@
 {
-    "chain_name": "atomone",
+    "chain_name": "AtomOne",
     "api": [
         {
             "address": "https://atomone-api.allinbits.services", 
