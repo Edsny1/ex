@@ -1,28 +1,19 @@
 {
     "chain_name": "atomone",
-    "api": [
-        {
-            "address": "https://atomone-api.allinbits.services", 
-            "provider": "All in Bits"
-        }
-    ], 
-    "rpc": [
-        {
-            "address": "https://atomone-rpc.allinbits.services", 
-            "provider": "All In Bits"
-        }
-    ],
+    "coingecko": "",
+    "api": ["https://atomone-api.allinbits.services"],
+    "rpc": ["https://atomone-rpc.allinbits.services"],
+    "snapshot_provider": "",
     "sdk_version": "v0.47.13",
     "coin_type": "118",
     "min_tx_fee": "800",
+    "addr_prefix": "atone",
+    "logo": "/logos/atomone.png",
     "assets": [{
         "base": "uatone",
         "symbol": "ATONE",
         "exponent": "6",
-        "coingecko_id": "", 
+        "coingecko_id": "",
         "logo": ""
-    }],
-    "addr_prefix": "atone",
-    "theme_color": "#ce4747",
-    "logo": "/logos/atomone.png"
+    }]
 }
