@@ -2,13 +2,13 @@
     "chain_name": "AtomOne",
     "api": [
         {
-            "address": "https://atomone-api.allinbits.services", 
+            "address": "https://atomone-mainnet-api.oshvank.xyz", 
             "provider": "All in Bits"
         }
     ], 
     "rpc": [
         {
-            "address": "https://atomone-rpc.allinbits.services", 
+            "address": "https://atomone-mainnet-rpc.oshvank.xyz", 
             "provider": "All In Bits"
         }
     ],
