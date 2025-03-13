@@ -49,7 +49,7 @@ const chainStore = useBlockchain();
     <div
       class="flex md:!flex-row flex-col items-center justify-center mb-6 mt-14 gap-2"
     >
-      <h1 class="text-lime-600 dark:invert text-3xl md:!text-6xl font-bold oshvank-title">
+      <h1 class="text-sky-500 dark:invert text-3xl md:!text-6xl font-bold font-serif oshvank-title">
         {{ $t('pages.title') }}
       </h1>
     </div>
@@ -65,7 +65,7 @@ const chainStore = useBlockchain();
       v-if="featured.length > 0"
       class="text-center text-base mt-6 text-primary"
     >
-      <h2 class="mb-6">Featured Blockchains 🔥</h2>
+      <h2 class="mb-6 crypto-addict">🏆 Crypto Addict 🏆</h2>
     </div>
 
     <div
@@ -122,6 +122,12 @@ const chainStore = useBlockchain();
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-addict {
+  color: var(--oshvank-secondary);
+  font-weight: 600;
 }
 
 .search-container {
@@ -134,6 +140,10 @@ const chainStore = useBlockchain();
 .search-container:focus-within {
   border-color: var(--oshvank-primary) !important;
   box-shadow: 0 0 0 2px var(--oshvank-hover-border);
+}
+
+.oshvank-search {
+  color: var(--text-main);
 }
 
 .oshvank-grid {
