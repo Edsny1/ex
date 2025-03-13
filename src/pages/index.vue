@@ -45,11 +45,11 @@ const featured = computed(() => {
 const chainStore = useBlockchain();
 </script>
 <template>
-  <div class="">
+  <div class="oshvank-container">
     <div
       class="flex md:!flex-row flex-col items-center justify-center mb-6 mt-14 gap-2"
     >
-      <h1 class="text-sky-500 dark:invert text-3xl md:!text-6xl font-bold font-serif">
+      <h1 class="text-lime-600 dark:invert text-3xl md:!text-6xl font-bold oshvank-title">
         {{ $t('pages.title') }}
       </h1>
     </div>
@@ -65,12 +65,12 @@ const chainStore = useBlockchain();
       v-if="featured.length > 0"
       class="text-center text-base mt-6 text-primary"
     >
-      <h2 class="mb-6">🏆 Crypto Addict 🏆</h2>
+      <h2 class="mb-6">Featured Blockchains 🔥</h2>
     </div>
 
     <div
       v-if="featured.length > 0"
-      class="grid grid-cols-1 gap-4 mt-6 md:!grid-cols-3 lg:!grid-cols-4 2xl:!grid-cols-5"
+      class="grid grid-cols-1 gap-4 mt-6 md:!grid-cols-3 lg:!grid-cols-4 2xl:!grid-cols-5 oshvank-grid"
     >
       <ChainSummary
         v-for="(chain, index) in featured"
@@ -80,12 +80,12 @@ const chainStore = useBlockchain();
     </div>
 
     <div
-      class="flex items-center rounded-lg bg-base-100 border border-gray-200 dark:border-gray-700 mt-10"
+      class="flex items-center rounded-lg bg-base-100 border border-gray-200 dark:border-gray-700 mt-10 search-container"
     >
       <Icon icon="mdi:magnify" class="text-2xl text-gray-400 ml-3" />
       <input
         :placeholder="$t('pages.search_placeholder')"
-        class="px-4 h-10 bg-transparent flex-1 outline-none text-base"
+        class="px-4 h-10 bg-transparent flex-1 outline-none text-base oshvank-search"
         v-model="keywords"
       />
       <div class="px-4 text-base hidden md:!block">
@@ -94,7 +94,7 @@ const chainStore = useBlockchain();
     </div>
 
     <div
-      class="grid grid-cols-1 gap-4 mt-6 md:!grid-cols-3 lg:!grid-cols-4 2xl:!grid-cols-5"
+      class="grid grid-cols-1 gap-4 mt-6 md:!grid-cols-3 lg:!grid-cols-4 2xl:!grid-cols-5 oshvank-grid"
     >
       <ChainSummary
         v-for="(chain, index) in chains"
@@ -108,5 +108,35 @@ const chainStore = useBlockchain();
 <style scoped>
 .logo path {
   fill: #171d30;
+}
+
+/* Yeni stiller */
+.oshvank-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, var(--oshvank-dark), #1e293b);
+  padding: 1rem;
+}
+
+.oshvank-title {
+  background: linear-gradient(to right, var(--oshvank-primary), var(--oshvank-secondary), var(--oshvank-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.search-container {
+  background-color: var(--oshvank-card-bg) !important;
+  border: 1px solid var(--oshvank-border) !important;
+  transition: all 0.3s ease;
+  border-radius: 0.75rem !important;
+}
+
+.search-container:focus-within {
+  border-color: var(--oshvank-primary) !important;
+  box-shadow: 0 0 0 2px var(--oshvank-hover-border);
+}
+
+.oshvank-grid {
+  margin-bottom: 2rem;
 }
 </style>
