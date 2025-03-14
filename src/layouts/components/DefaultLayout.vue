@@ -131,7 +131,7 @@ function selected(route: any, nav: NavLink) {
             </div>
             <div
               v-if="item?.badgeContent"
-              class="mr-6 badge badge-sm text-white border-none"
+              class="menu-badge"
               :class="item?.badgeClass"
             >
               {{ item?.badgeContent }}
@@ -140,7 +140,7 @@ function selected(route: any, nav: NavLink) {
           <div class="collapse-content">
             <div
               v-for="(el, key) of item?.children"
-              class="menu bg-base-100 w-full !p-0"
+              class="menu w-full !p-0"
             >
               <RouterLink
                 v-if="isNavLink(el)"
@@ -154,11 +154,9 @@ function selected(route: any, nav: NavLink) {
                 <Icon
                   v-if="!el?.icon?.image"
                   icon="mdi:chevron-right"
-                  class="mr-2 ml-3"
+                  class="mr-2 ml-3 text-slate-500"
                   :class="{
-                    'text-white':
-                      $route.path === el?.to?.path &&
-                      item?.title !== 'Favorite',
+                    'text-cyan-400': selected($route, el),
                   }"
                 />
                 <img
@@ -170,9 +168,9 @@ function selected(route: any, nav: NavLink) {
                   }"
                 />
                 <div
-                  class="text-base capitalize text-slate-300"
+                  class="text-sm capitalize text-slate-300"
                   :class="{
-                    '!text-white': selected($route, el),
+                    'text-cyan-400': selected($route, el),
                   }"
                 >
                   {{ item?.title === 'Favorite' ? el?.title : $t(el?.title) }}
@@ -183,7 +181,55 @@ function selected(route: any, nav: NavLink) {
         </div>
 
         <RouterLink
-          v-if="isNavLink(item)"
+          v-if="isNavLink(item) && item?.title === 'Favorite'"
+          :to="item?.to"
+          @click="sidebarShow = false"
+          class="oshvank-menu-item menu-item-favorite"
+        >
+          <Icon
+            v-if="item?.icon?.icon"
+            :icon="item?.icon?.icon"
+            class="text-xl mr-2 text-yellow-400"
+          />
+          <img
+            v-if="item?.icon?.image"
+            :src="item?.icon?.image"
+            class="w-6 h-6 rounded-full mr-3"
+          />
+          <div class="text-sm capitalize flex-1 text-yellow-400 whitespace-nowrap">
+            {{ item?.title }}
+          </div>
+        </RouterLink>
+
+        <RouterLink
+          v-else-if="isNavLink(item) && item?.title === 'All Blockchains'"
+          :to="item?.to"
+          @click="sidebarShow = false"
+          class="oshvank-menu-item menu-item-all-chains"
+        >
+          <Icon
+            v-if="item?.icon?.icon"
+            :icon="item?.icon?.icon"
+            class="text-xl mr-2 text-cyan-400"
+          />
+          <img
+            v-if="item?.icon?.image"
+            :src="item?.icon?.image"
+            class="w-6 h-6 rounded-full mr-3"
+          />
+          <div class="text-sm capitalize flex-1 text-slate-200 whitespace-nowrap">
+            {{ item?.title }}
+          </div>
+          <div
+            v-if="item?.badgeContent"
+            class="menu-badge"
+          >
+            {{ item?.badgeContent }}
+          </div>
+        </RouterLink>
+
+        <RouterLink
+          v-else-if="isNavLink(item)"
           :to="item?.to"
           @click="sidebarShow = false"
           class="oshvank-menu-item"
@@ -191,30 +237,24 @@ function selected(route: any, nav: NavLink) {
           <Icon
             v-if="item?.icon?.icon"
             :icon="item?.icon?.icon"
-            class="text-xl mr-2"
-            :class="{
-              'text-yellow-400': item?.title === 'Favorite',
-              'text-cyan-400': item?.title !== 'Favorite',
-            }"
+            class="text-xl mr-2 text-cyan-400"
           />
           <img
             v-if="item?.icon?.image"
             :src="item?.icon?.image"
-            class="w-6 h-6 rounded-full mr-3 border border-blue-100"
+            class="w-6 h-6 rounded-full mr-3"
           />
-          <div
-            class="text-base capitalize flex-1 text-slate-200 whitespace-nowrap"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300 whitespace-nowrap">
             {{ item?.title }}
           </div>
           <div
             v-if="item?.badgeContent"
-            class="badge badge-sm text-white border-none"
-            :class="item?.badgeClass"
+            class="menu-badge"
           >
             {{ item?.badgeContent }}
           </div>
         </RouterLink>
+
         <div
           v-if="isNavTitle(item)"
           class="oshvank-menu-section"
@@ -235,9 +275,7 @@ function selected(route: any, nav: NavLink) {
             src="https://ping.pub/logos/osmosis.jpg"
             class="w-6 h-6 rounded-full mr-3"
           />
-          <div
-            class="text-sm capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Osmosis
           </div>
         </a>
@@ -250,9 +288,7 @@ function selected(route: any, nav: NavLink) {
             src="https://ping.pub/logos/celestia.png"
             class="w-6 h-6 rounded-full mr-3"
           />
-          <div
-            class="text-sm capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Celestia
           </div>
         </a>
@@ -265,9 +301,7 @@ function selected(route: any, nav: NavLink) {
             src="https://becole.com/static/logo/logo_becole.png"
             class="w-6 h-6 rounded-full mr-3"
           />
-          <div
-            class="text-sm capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Becole
           </div>
         </a>
@@ -278,9 +312,7 @@ function selected(route: any, nav: NavLink) {
           class="oshvank-menu-item"
         >
           <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2 text-cyan-400" />
-          <div
-            class="text-base capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Wallet Helper
           </div>
         </RouterLink>
@@ -294,9 +326,7 @@ function selected(route: any, nav: NavLink) {
           class="oshvank-menu-item"
         >
           <Icon icon="mdi:twitter" class="text-xl mr-2 text-cyan-400" />
-          <div
-            class="text-base capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Twitter
           </div>
         </a>
@@ -307,9 +337,7 @@ function selected(route: any, nav: NavLink) {
           class="oshvank-menu-item"
         >
           <Icon icon="mdi:discord" class="text-xl mr-2 text-cyan-400" />
-          <div
-            class="text-base capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             Discord
           </div>
         </a>
@@ -319,9 +347,7 @@ function selected(route: any, nav: NavLink) {
           class="oshvank-menu-item"
         >
           <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2 text-cyan-400" />
-          <div
-            class="text-base capitalize flex-1 text-slate-300"
-          >
+          <div class="text-sm capitalize flex-1 text-slate-300">
             FAQ
           </div>
         </a>
@@ -367,13 +393,13 @@ function selected(route: any, nav: NavLink) {
 <style scoped>
 /* Sidebar Stilleri */
 .oshvank-sidebar {
-  background-color: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(8px);
-  border-right: 1px solid rgba(100, 116, 139, 0.3);
+  background-color: #171d30;
+  border-right: 1px solid rgba(100, 116, 139, 0.2);
 }
 
 .sidebar-header {
-  border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+  border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+  padding: 0.5rem 0;
 }
 
 .oshvank-logo-text {
@@ -384,55 +410,69 @@ function selected(route: any, nav: NavLink) {
 }
 
 .oshvank-menu-group {
-  margin: 4px 0;
-  border-radius: 0.5rem;
+  margin: 2px 0;
+  border-radius: 0.375rem;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
 }
 
 .oshvank-menu-group:hover {
   background-color: rgba(30, 41, 59, 0.5);
-  border-color: rgba(100, 116, 139, 0.3);
 }
 
 .oshvank-menu-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.75rem;
-  margin: 4px 0;
-  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  margin: 2px 0;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid transparent;
-  color: #e2e8f0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  background-color: transparent;
 }
 
 .oshvank-menu-item:hover {
   background-color: rgba(30, 41, 59, 0.5);
-  border-color: rgba(100, 116, 139, 0.3);
-  transform: translateX(2px);
+  color: #e2e8f0;
 }
 
 .oshvank-menu-item-active {
-  background-color: rgba(8, 145, 178, 0.2) !important;
-  border-color: rgba(8, 145, 178, 0.4) !important;
+  background-color: rgba(30, 41, 59, 0.8) !important;
   color: #0ea5e9 !important;
 }
 
 .oshvank-menu-section {
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  padding: 1.25rem 0.75rem 0.5rem 0.75rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+/* Özel menü öğeleri için stiller */
+.menu-item-favorite {
+  color: #fbbf24 !important;
+}
+
+.menu-item-all-chains {
+  position: relative;
+  color: #e2e8f0 !important;
+}
+
+.menu-badge {
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.125rem 0.375rem;
+  border-radius: 9999px;
+  margin-left: auto;
 }
 
 /* Header Stilleri */
 .oshvank-header {
-  background-color: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(100, 116, 139, 0.3);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-</style>
+  background-color: #171d30;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0
