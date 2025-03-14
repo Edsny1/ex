@@ -390,6 +390,162 @@ function selected(route: any, nav: NavLink) {
   </div>
 </template>
 
+<style>
+/* Global değişkenler - tüm uygulama için renk şeması */
+:root {
+  --oshvank-bg: #171d30;
+  --oshvank-card-bg: rgba(30, 41, 59, 0.3);
+  --oshvank-card-bg-hover: rgba(30, 41, 59, 0.5);
+  --oshvank-border: rgba(100, 116, 139, 0.2);
+  --oshvank-text: #e2e8f0;
+  --oshvank-text-secondary: #94a3b8;
+  --oshvank-primary: #0ea5e9;
+  --oshvank-success: #10b981;
+  --oshvank-warning: #f59e0b;
+  --oshvank-danger: #ef4444;
+  --oshvank-yellow: #fbbf24;
+}
+
+/* Tüm sayfalarda kullanılan genel stiller */
+body {
+  background-color: var(--oshvank-bg);
+  color: var(--oshvank-text);
+}
+
+/* Kart stilleri */
+.card, .stats-card {
+  background-color: var(--oshvank-card-bg);
+  border: 1px solid var(--oshvank-border);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.card:hover, .stats-card:hover {
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+/* Tablo stilleri */
+table {
+  background-color: var(--oshvank-card-bg);
+  border: 1px solid var(--oshvank-border);
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+th {
+  color: var(--oshvank-text-secondary);
+  font-weight: 500;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--oshvank-border);
+}
+
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--oshvank-border);
+  color: var(--oshvank-text);
+}
+
+/* Buton stilleri */
+.btn-delegate {
+  background-color: var(--oshvank-danger);
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delegate:hover {
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--oshvank-primary);
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-success {
+  background-color: var(--oshvank-success);
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Tab stilleri */
+.tab {
+  color: var(--oshvank-text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.tab.active {
+  background-color: var(--oshvank-danger);
+  color: white;
+}
+
+/* Değer göstergeleri */
+.value-positive {
+  color: var(--oshvank-success);
+}
+
+.value-negative {
+  color: var(--oshvank-danger);
+}
+
+/* Bölüm başlıkları */
+.section-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--oshvank-text);
+  margin-bottom: 1rem;
+}
+
+/* Parametre kartları */
+.param-card {
+  background-color: var(--oshvank-card-bg);
+  border: 1px solid var(--oshvank-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.param-label {
+  color: var(--oshvank-text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.param-value {
+  color: var(--oshvank-text);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Zaman göstergeleri */
+.time-ago {
+  color: var(--oshvank-success);
+  font-size: 0.875rem;
+}
+</style>
+
 <style scoped>
 /* Sidebar Stilleri */
 .oshvank-sidebar {
@@ -414,10 +570,12 @@ function selected(route: any, nav: NavLink) {
   border-radius: 0.375rem;
   transition: all 0.2s ease;
   padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
 }
 
 .oshvank-menu-group:hover {
   background-color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(14, 165, 233, 0.2);
 }
 
 .oshvank-menu-item {
@@ -431,16 +589,19 @@ function selected(route: any, nav: NavLink) {
   color: #94a3b8;
   font-size: 0.875rem;
   background-color: transparent;
+  border: 1px solid transparent;
 }
 
 .oshvank-menu-item:hover {
   background-color: rgba(30, 41, 59, 0.5);
   color: #e2e8f0;
+  border-color: rgba(14, 165, 233, 0.2);
 }
 
 .oshvank-menu-item-active {
-  background-color: rgba(30, 41, 59, 0.8) !important;
+  background-color: rgba(8, 145, 178, 0.2) !important;
   color: #0ea5e9 !important;
+  border-color: rgba(14, 165, 233, 0.4) !important;
 }
 
 .oshvank-menu-section {
@@ -455,6 +616,11 @@ function selected(route: any, nav: NavLink) {
 /* Özel menü öğeleri için stiller */
 .menu-item-favorite {
   color: #fbbf24 !important;
+}
+
+.menu-item-favorite:hover {
+  background-color: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
 }
 
 .menu-item-all-chains {
@@ -473,7 +639,9 @@ function selected(route: any, nav: NavLink) {
 
 /* Header Stilleri */
 .oshvank-header {
-  background-color: #171d30;
+  background-color: rgba(23, 29, 48, 0.8);
   border: 1px solid rgba(100, 116, 139, 0.2);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0
- 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+}
+</style>
