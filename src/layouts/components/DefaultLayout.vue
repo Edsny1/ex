@@ -70,13 +70,13 @@ function selected(route: any, nav: NavLink) {
   <div class="bg-gray-100 dark:bg-[#171d30]">
     <!-- sidebar -->
     <div
-      class="w-64 fixed z-50 left-0 top-0 bottom-0 overflow-auto bg-base-100 border-r border-gray-100 dark:border-gray-700"
+      class="w-64 fixed z-50 left-0 top-0 bottom-0 overflow-auto oshvank-sidebar"
       :class="{ block: sidebarShow, 'hidden xl:!block': !sidebarShow }"
     >
-      <div class="flex justify-between mt-1 pl-4 py-4 mb-1">
+      <div class="flex justify-between mt-1 pl-4 py-4 mb-1 sidebar-header">
         <RouterLink to="/" class="flex items-center">
           <img src="/favicon.ico" alt="Logo" class="w-8 h-8" />
-          <h1 class="flex-1 ml-3 text-2xl font-semibold dark:text-white">
+          <h1 class="flex-1 ml-3 text-2xl font-semibold oshvank-logo-text">
             OshVanK
           </h1>
         </RouterLink>
@@ -84,7 +84,7 @@ function selected(route: any, nav: NavLink) {
           class="pr-4 cursor-pointer xl:!hidden"
           @click="sidebarShow = false"
         >
-          <Icon icon="mdi-close" class="text-2xl" />
+          <Icon icon="mdi-close" class="text-2xl text-slate-300 hover:text-white transition-colors" />
         </div>
       </div>
       <div
@@ -108,15 +108,15 @@ function selected(route: any, nav: NavLink) {
             @click="changeOpen(index)"
           />
           <div
-            class="collapse-title !py-0 px-4 flex items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-[#373f59]"
+            class="collapse-title !py-0 px-4 flex items-center cursor-pointer oshvank-menu-group"
           >
             <Icon
               v-if="item?.icon?.icon"
               :icon="item?.icon?.icon"
               class="text-xl mr-2"
               :class="{
-                'text-yellow-500': item?.title === 'Favorite',
-                'text-blue-500': item?.title !== 'Favorite',
+                'text-yellow-400': item?.title === 'Favorite',
+                'text-cyan-400': item?.title !== 'Favorite',
               }"
             />
             <img
@@ -125,7 +125,7 @@ function selected(route: any, nav: NavLink) {
               class="w-6 h-6 rounded-full mr-3"
             />
             <div
-              class="text-base capitalize flex-1 text-gray-700 dark:text-gray-200 whitespace-nowrap"
+              class="text-base capitalize flex-1 text-slate-200 whitespace-nowrap"
             >
               {{ item?.title }}
             </div>
@@ -145,9 +145,9 @@ function selected(route: any, nav: NavLink) {
               <RouterLink
                 v-if="isNavLink(el)"
                 @click="sidebarShow = false"
-                class="hover:bg-gray-100 dark:hover:bg-[#373f59] rounded cursor-pointer px-3 py-2 flex items-center"
+                class="oshvank-menu-item"
                 :class="{
-                  '!bg-primary': selected($route, el),
+                  'oshvank-menu-item-active': selected($route, el),
                 }"
                 :to="el.to"
               >
@@ -170,7 +170,7 @@ function selected(route: any, nav: NavLink) {
                   }"
                 />
                 <div
-                  class="text-base capitalize text-gray-500 dark:text-gray-300"
+                  class="text-base capitalize text-slate-300"
                   :class="{
                     '!text-white': selected($route, el),
                   }"
@@ -186,15 +186,15 @@ function selected(route: any, nav: NavLink) {
           v-if="isNavLink(item)"
           :to="item?.to"
           @click="sidebarShow = false"
-          class="cursor-pointer rounded-lg px-4 flex items-center py-2 hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
           <Icon
             v-if="item?.icon?.icon"
             :icon="item?.icon?.icon"
             class="text-xl mr-2"
             :class="{
-              'text-yellow-500': item?.title === 'Favorite',
-              'text-blue-500': item?.title !== 'Favorite',
+              'text-yellow-400': item?.title === 'Favorite',
+              'text-cyan-400': item?.title !== 'Favorite',
             }"
           />
           <img
@@ -203,7 +203,7 @@ function selected(route: any, nav: NavLink) {
             class="w-6 h-6 rounded-full mr-3 border border-blue-100"
           />
           <div
-            class="text-base capitalize flex-1 text-gray-700 dark:text-gray-200 whitespace-nowrap"
+            class="text-base capitalize flex-1 text-slate-200 whitespace-nowrap"
           >
             {{ item?.title }}
           </div>
@@ -217,26 +217,26 @@ function selected(route: any, nav: NavLink) {
         </RouterLink>
         <div
           v-if="isNavTitle(item)"
-          class="px-4 text-sm text-gray-400 pb-2 uppercase"
+          class="oshvank-menu-section"
         >
           {{ item?.heading }}
         </div>
       </div>
       <div class="px-2">
-        <div class="px-4 text-sm pt-2 text-gray-400 pb-2 uppercase">
+        <div class="oshvank-menu-section">
           {{ $t('module.sponsors') }}
         </div>
         <a
           href="https://osmosis.zone"
           target="_blank"
-          class="py-2 px-4 flex items-center cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
           <img
             src="https://ping.pub/logos/osmosis.jpg"
             class="w-6 h-6 rounded-full mr-3"
           />
           <div
-            class="text-sm capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-sm capitalize flex-1 text-slate-300"
           >
             Osmosis
           </div>
@@ -244,14 +244,14 @@ function selected(route: any, nav: NavLink) {
         <a
           href="https://celestia.org"
           target="_blank"
-          class="py-2 px-4 flex items-center cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
           <img
             src="https://ping.pub/logos/celestia.png"
             class="w-6 h-6 rounded-full mr-3"
           />
           <div
-            class="text-sm capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-sm capitalize flex-1 text-slate-300"
           >
             Celestia
           </div>
@@ -259,43 +259,43 @@ function selected(route: any, nav: NavLink) {
         <a
           href="https://becole.com"
           target="_blank"
-          class="py-2 px-4 flex items-center cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
           <img
             src="https://becole.com/static/logo/logo_becole.png"
             class="w-6 h-6 rounded-full mr-3"
           />
           <div
-            class="text-sm capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-sm capitalize flex-1 text-slate-300"
           >
             Becole
           </div>
         </a>
 
-        <div class="px-4 text-sm pt-2 text-gray-400 pb-2 uppercase">Tools</div>
+        <div class="oshvank-menu-section">Tools</div>
         <RouterLink
           to="/wallet/suggest"
-          class="py-2 px-4 flex items-center cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
-          <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2" />
+          <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2 text-cyan-400" />
           <div
-            class="text-base capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-base capitalize flex-1 text-slate-300"
           >
             Wallet Helper
           </div>
         </RouterLink>
 
-        <div class="px-4 text-sm pt-2 text-gray-400 pb-2 uppercase">
+        <div class="oshvank-menu-section">
           {{ $t('module.links') }}
         </div>
         <a
           href="https://twitter.com/"
           target="_blank"
-          class="py-2 px-4 flex items-center cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
-          <Icon icon="mdi:twitter" class="text-xl mr-2" />
+          <Icon icon="mdi:twitter" class="text-xl mr-2 text-cyan-400" />
           <div
-            class="text-base capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-base capitalize flex-1 text-slate-300"
           >
             Twitter
           </div>
@@ -304,11 +304,11 @@ function selected(route: any, nav: NavLink) {
           v-if="showDiscord"
           href="https://discord.com/users/132567842431172608"
           target="_blank"
-          class="py-2 px-4 flex items-center rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
-          <Icon icon="mdi:discord" class="text-xl mr-2" />
+          <Icon icon="mdi:discord" class="text-xl mr-2 text-cyan-400" />
           <div
-            class="text-base capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-base capitalize flex-1 text-slate-300"
           >
             Discord
           </div>
@@ -316,11 +316,11 @@ function selected(route: any, nav: NavLink) {
         <a
           href="https://github.com/ping-pub/explorer/discussions"
           target="_blank"
-          class="py-2 px-4 flex items-center rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-[#373f59]"
+          class="oshvank-menu-item"
         >
-          <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2" />
+          <Icon icon="mdi:frequently-asked-questions" class="text-xl mr-2 text-cyan-400" />
           <div
-            class="text-base capitalize flex-1 text-gray-600 dark:text-gray-200"
+            class="text-base capitalize flex-1 text-slate-300"
           >
             FAQ
           </div>
@@ -330,10 +330,10 @@ function selected(route: any, nav: NavLink) {
     <div class="xl:!ml-64 px-3 pt-4">
       <!-- header -->
       <div
-        class="flex items-center py-3 bg-base-100 mb-4 rounded px-4 sticky top-0 z-10"
+        class="flex items-center py-3 mb-4 rounded px-4 sticky top-0 z-10 oshvank-header"
       >
         <div
-          class="text-2xl pr-3 cursor-pointer xl:!hidden"
+          class="text-2xl pr-3 cursor-pointer xl:!hidden text-slate-300 hover:text-cyan-400 transition-colors"
           @click="sidebarShow = true"
         >
           <Icon icon="mdi-menu" />
@@ -363,3 +363,76 @@ function selected(route: any, nav: NavLink) {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Sidebar Stilleri */
+.oshvank-sidebar {
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.sidebar-header {
+  border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.oshvank-logo-text {
+  background: linear-gradient(to right, #22d3ee, #0ea5e9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.oshvank-menu-group {
+  margin: 4px 0;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.oshvank-menu-group:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(100, 116, 139, 0.3);
+}
+
+.oshvank-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  margin: 4px 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  color: #e2e8f0;
+}
+
+.oshvank-menu-item:hover {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(100, 116, 139, 0.3);
+  transform: translateX(2px);
+}
+
+.oshvank-menu-item-active {
+  background-color: rgba(8, 145, 178, 0.2) !important;
+  border-color: rgba(8, 145, 178, 0.4) !important;
+  color: #0ea5e9 !important;
+}
+
+.oshvank-menu-section {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+/* Header Stilleri */
+.oshvank-header {
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+</style>
