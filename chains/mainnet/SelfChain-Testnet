@@ -1,0 +1,24 @@
+{
+  "chain_name": "selfchain-testnet",
+  "coingecko": "",
+  "api": [
+    "https://rpc-testnet.selfchain.xyz:1317",
+    "https://selfchain-testnet-api.mictonode.com"
+  ],
+  "rpc": ["https://rpc-testnet.selfchain.xyz:1317"],
+  "snapshot_provider": "",
+  "sdk_version": "v0.47.10",
+  "coin_type": "118",
+  "min_tx_fee": "800",
+  "addr_prefix": "self",
+  "logo": "/logos/selfchain.png",
+  "assets": [
+    {
+      "base": "uslf",
+      "symbol": "SLF",
+      "exponent": "6",
+      "coingecko_id": "",
+      "logo": "/logos/selfchain.png"
+    }
+  ]
+}
