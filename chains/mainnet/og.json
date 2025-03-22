@@ -1,20 +1,31 @@
 {
-    "chain_name": "og",
+    "chain_name": "0g-Testnet",
     "coingecko": "",
-    "api": ["https://og-testnet-api.itrocket.net"], 
-    "rpc": ["https://og-testnet-rpc.itrocket.net"],
+    "api": [
+        "https://og-testnet-api.itrocket.net"
+    ], 
+    "rpc": [
+        "https://og-testnet-rpc.itrocket.net"
+    ],
+    "json_rpc": "https://og-testnet-evm.itrocket.net:443",
+    "grpc": "og-testnet-grpc.itrocket.net:443",
     "snapshot_provider": "",
     "sdk_version": "0.47.10",
     "coin_type": "60",
     "min_tx_fee": "4000",
     "addr_prefix": "0g",
     "logo": "/logos/og.jpg",
-    "keplr_features": ["eth-address-gen", "eth-key-sign"],
+    "keplr_features": [
+        "eth-address-gen",
+        "eth-key-sign"
+    ],
     "assets": [{
         "base": "ua0gi",
         "symbol": "A0GI",
         "exponent": "6", 
         "coingecko_id": "",
         "logo": "/logos/og.jpg"
-    }]
+    }],
+    "chain_id": "zgtendermint_16600-2",
+    "cosmos_sdk_version": "v0.47.10"
 }
