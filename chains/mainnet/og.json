@@ -4,7 +4,7 @@
     "api": ["https://og-testnet-api.itrocket.net"], 
     "rpc": ["https://og-testnet-rpc.itrocket.net"],
     "snapshot_provider": "",
-    "sdk_version": "0.46.11",
+    "sdk_version": "0.47.10",
     "coin_type": "60",
     "min_tx_fee": "4000",
     "addr_prefix": "0g",
