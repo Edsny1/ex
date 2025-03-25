@@ -1,24 +1,20 @@
 {
-  "chain_name": "selfchain-testnet",
-  "coingecko": "",
-  "api": [
-    "https://rpc-testnet.selfchain.xyz:1317",
-    "https://selfchain-testnet-api.mictonode.com"
-  ],
-  "rpc": ["https://rpc-testnet.selfchain.xyz:1317"],
-  "snapshot_provider": "",
-  "sdk_version": "v0.47.10",
-  "coin_type": "118",
-  "min_tx_fee": "800",
-  "addr_prefix": "self",
-  "logo": "/logos/selfchain.png",
-  "assets": [
-    {
-      "base": "uslf",
-      "symbol": "SLF",
-      "exponent": "6",
-      "coingecko_id": "",
-      "logo": "/logos/selfchain.png"
-    }
-  ]
+    "chain_name": "selfchain",
+    "coingecko": "self-chain",
+    "api": ["https://selfchain-testnet-api.coinsspor.com"],
+    "rpc": ["https://selfchain-testnet-rpc.coinsspor.com"],
+    "snapshot_provider": "",
+    "sdk_version": "0.47.4",
+    "coin_type": "118",
+    "min_tx_fee": "10",
+    "addr_prefix": "self",
+    "logo": "/logos/selfchain.png",
+    "theme_color": "#4B7BEC",
+    "assets": [{
+        "base": "uslf",
+        "symbol": "SLF",
+        "exponent": "6",
+        "coingecko_id": "self-chain",
+        "logo": "/logos/selfchain.png"
+    }]
 }
