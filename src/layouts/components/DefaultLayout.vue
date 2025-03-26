@@ -7,6 +7,7 @@ import newFooter from '@/layouts/components/NavFooter.vue';
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue';
 import NavbarSearch from '@/layouts/components/NavbarSearch.vue';
 import ChainProfile from '@/layouts/components/ChainProfile.vue';
+import CosmicTitle from '@/layouts/components/CosmicTitle.vue'; // Yeni eklenen bileşen
 
 import { useDashboard } from '@/stores/useDashboard';
 import { useBlockchain } from '@/stores';
@@ -40,6 +41,7 @@ blockchain.$subscribe((m, s) => {
 
 const sidebarShow = ref(false);
 const sidebarOpen = ref(true);
+const showCosmicTitle = ref(true); // Başlığı gösterme/gizleme kontrolü için
 
 const changeOpen = (index: Number) => {
   if (index === 0) {
@@ -375,6 +377,28 @@ function selected(route: any, nav: NavLink) {
         <NavbarSearch class="!inline-block" />
         <NavBarWallet />
       </div>
+
+      <!-- Kozmik Başlık Bileşeni -->
+      <div v-if="showCosmicTitle" class="mb-6">
+        <CosmicTitle />
+        <div class="flex justify-end">
+          <button 
+            @click="showCosmicTitle = false" 
+            class="text-xs text-slate-400 hover:text-cyan-400 transition-colors"
+          >
+            <Icon icon="mdi:close" class="mr-1" />
+            Başlığı Gizle
+          </button>
+        </div>
+      </div>
+      <button 
+        v-else 
+        @click="showCosmicTitle = true" 
+        class="mb-4 text-sm text-slate-400 hover:text-cyan-400 transition-colors flex items-center"
+      >
+        <Icon icon="mdi:chevron-down" class="mr-1" />
+        Kozmik Başlığı Göster
+      </button>
 
       <!-- 👉 Pages -->
       <div style="min-height: calc(100vh - 180px)">
