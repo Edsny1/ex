@@ -1,5 +1,5 @@
-<script setup>
-import { Icon } from '@iconify/vue'; // @/components/Icon.vue yerine @iconify/vue'dan import edin
+<script lang="ts" setup>
+import { Icon } from '@iconify/vue'; // Eğer Icon kullanılıyorsa
 </script>
 
 <template>
@@ -25,6 +25,7 @@ import { Icon } from '@iconify/vue'; // @/components/Icon.vue yerine @iconify/vu
 </template>
 
 <style scoped>
+/* Stil kodları aynı kalacak */
 .cosmic-title-container {
   position: relative;
   width: 100%;
