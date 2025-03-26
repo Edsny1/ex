@@ -7,7 +7,7 @@ import newFooter from '@/layouts/components/NavFooter.vue';
 import NavbarThemeSwitcher from '@/layouts/components/NavbarThemeSwitcher.vue';
 import NavbarSearch from '@/layouts/components/NavbarSearch.vue';
 import ChainProfile from '@/layouts/components/ChainProfile.vue';
-import CosmicTitle from '@/layouts/components/CosmicTitle.vue'; // Yeni eklenen bileşen
+import CosmicTitle from '@/components/CosmicTitle.vue';
 
 import { useDashboard } from '@/stores/useDashboard';
 import { useBlockchain } from '@/stores';
