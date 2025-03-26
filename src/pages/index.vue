@@ -44,16 +44,11 @@ const featured = computed(() => {
 
 const chainStore = useBlockchain();
 </script>
+
 <template>
   <div class="oshvank-container">
-    <div
-      class="flex md:!flex-row flex-col items-center justify-center mb-6 mt-14 gap-2"
-    >
-      <h1 class="text-sky-500 dark:invert text-3xl md:!text-6xl font-bold font-serif oshvank-title">
-        {{ $t('pages.title') }}
-      </h1>
-    </div>
-
+    <!-- OshVanK Explorer başlığı kaldırıldı -->
+    
     <div
       v-if="dashboard.status !== LoadingStatus.Loaded"
       class="flex justify-center"
