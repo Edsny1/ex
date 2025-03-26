@@ -142,3 +142,4 @@ const chainStore = useBlockchain();
   margin-bottom: 2rem;
 }
 </style>
+
