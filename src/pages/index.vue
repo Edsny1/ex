@@ -47,8 +47,6 @@ const chainStore = useBlockchain();
 
 <template>
   <div class="oshvank-container">
-    <!-- OshVanK Explorer başlığı kaldırıldı -->
-    
     <div
       v-if="dashboard.status !== LoadingStatus.Loaded"
       class="flex justify-center"
@@ -105,7 +103,6 @@ const chainStore = useBlockchain();
   fill: #171d30;
 }
 
-/* Yeni stiller */
 .oshvank-container {
   min-height: 100vh;
   background: linear-gradient(to bottom right, var(--oshvank-dark), #1e293b);
